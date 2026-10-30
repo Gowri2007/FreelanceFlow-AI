@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import "./App.css";
-const API = "http://127.0.0.1:8000";
+const API = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
 function App() {
   const match = window.location.pathname.match(/^\/pay\/([^/]+)\/?$/);
@@ -947,7 +947,7 @@ async function deleteInvoice(invoice) {
 
                           <div className="client-info">
                             <strong>{client.name}</strong>
-                            <span>{client.email}</span>
+                            
                           </div>
 
                           <span className="company-name">
